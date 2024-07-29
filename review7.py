@@ -9,7 +9,9 @@ import random
 
 class LevelState:
 
-    def __init__(self, curr_num_of_tries: int=3, have_user_not_guessed: bool=True) -> None:
+    def __init__(
+        self, curr_num_of_tries: int = 3, have_user_not_guessed: bool = True
+    ) -> None:
         self.__curr_num_of_tries = curr_num_of_tries
         self.__have_user_not_guessed = have_user_not_guessed
 
@@ -62,9 +64,7 @@ class Level:
 
         if did_user_guessed:
             print("Correct! Onto the next level.")
-            return LevelState(
-                self.__state.curr_num_of_tries, not did_user_guessed
-            )
+            return LevelState(self.__state.curr_num_of_tries, not did_user_guessed)
 
         print("Sorry! That's not correct. Please try again.")
         current_tries = self.__state.curr_num_of_tries - 1
@@ -104,12 +104,12 @@ class Game:
             ),
         )()
 
-    def __exit_from_the_game(self, message):
+    def __exit_from_the_game(self, message: str) -> None:
         print(message)
         exit()
 
 
-def main():
+def main() -> None:
     levels = (
         Level(
             "Hello! Welcome to Bee's Number Guessing Game!\nIn this game, you'll have "
